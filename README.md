@@ -1,4 +1,4 @@
 # ComposeCalculator
 Simple calculator app with Jetpack Compose
   
-![image](https://github.com/boykoss/ComposeCalculator/assets/84905576/0faf06f2-3aa8-448c-85fd-6e2f118f3792)
+![image](https://github.com/boykoss/ComposeCalculator/assets/84905576/9e9a5a4e-eced-4b83-b371-4f6251439ba6)
