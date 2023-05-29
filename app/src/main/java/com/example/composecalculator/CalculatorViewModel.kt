@@ -100,6 +100,6 @@ class CalculatorViewModel: ViewModel() {
     }
 
     companion object {
-        private const val MAX_NUM_LENGTH = 6
+        private const val MAX_NUM_LENGTH = 8
     }
 }

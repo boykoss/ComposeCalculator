@@ -11,8 +11,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -27,9 +34,48 @@ fun Calculator(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.Gray)
+            .background(Color.Black)
             .padding(16.dp)
     ) {
+        Column(
+            modifier = Modifier
+                .height(60.dp)
+                .align(Alignment.TopCenter),
+        ){
+            Text(
+                text = buildAnnotatedString {
+                    withStyle(
+                        style = SpanStyle(
+                            color = Color.Green,
+                            fontSize = 40.sp,
+                            fontWeight = FontWeight.ExtraBold
+                        )
+                    ) {
+                        append("S")
+                    }
+                    append("imple ")
+                    withStyle(
+                        style = SpanStyle(
+                            color = Color.Green,
+                            fontSize = 40.sp,
+                            fontWeight = FontWeight.ExtraBold
+                        )
+                    ) {
+                        append("C")
+                    }
+                    append("alculator")
+                },
+                color = Color.LightGray,
+                fontSize = 35.sp,
+                textDecoration = TextDecoration.Underline,
+                fontFamily = FontFamily.Serif,
+                fontWeight = FontWeight.ExtraBold
+
+
+            )
+        }
+
+
         Column(
             modifier = Modifier
                 .fillMaxWidth()
@@ -37,15 +83,20 @@ fun Calculator(
             verticalArrangement = Arrangement.spacedBy(buttonSpacing)
         ) {
             Text(
-                text = state.number1 + (state.operation?.symbol ?: "") + state.number2,
+                text = if (state.number1.isEmpty()) {
+                    "0"
+                } else {
+                    state.number1 + (state.operation?.symbol ?: "") + state.number2
+                },
                 textAlign = TextAlign.End,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 28.dp),
-                fontWeight = FontWeight.Light,
+                fontWeight = FontWeight.ExtraBold,
                 fontSize = 48.sp,
                 color = Color.White,
-                maxLines = 1
+                maxLines = 1,
+
             )
             Row(
                 modifier = Modifier.fillMaxWidth(),
